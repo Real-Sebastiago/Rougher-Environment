@@ -1,0 +1,28 @@
+pluginManagement {
+    repositories {
+        maven {
+            url = 'https://maven.blamejared.com'
+        }
+        gradlePluginPortal()
+        exclusiveContent {
+            forRepository {
+                maven {
+                    name = 'Fabric'
+                    url = 'https://maven.fabricmc.net'
+                }
+            }
+            filter {
+                includeGroupAndSubgroups('net.fabricmc')
+            }
+        }
+    }
+}
+plugins {
+    id('org.gradle.toolchains.foojay-resolver-convention') version '1.0.0'
+}
+rootProject.name = 'Rougher_Environment'
+include('common')
+include('fabric')
+include('neoforge')
+
+includeBuild('build-logic')

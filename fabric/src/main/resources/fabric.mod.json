@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "${MODID}",
+  "name": "${NAME}",
+  "version": "${VERSION}",
+  "environment": "client",
+  "description": "${DESCRIPTION}",
+  "authors": ["${AUTHOR}"],
+  "contact": {
+    "homepage": "",
+    "sources": "",
+    "issues": ""
+  },
+  "license": "MIT",
+  "icon": "assets/rougherenvironment/icon.png",
+  "entrypoints": {
+    "client": [
+      "com.realsebastiago.rougherenvironment.RougherEnvironment"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=${FABRIC_LOADER}",
+    "java": ">=${JAVA}",
+    "minecraft": "${MINECRAFT}"
+  },
+  "recommends": {
+    "fabric": "*"
+  },
+  "mixins": [
+    {
+      "config": "rougherenvironment.mixins.json",
+      "environment": "client"
+    },
+    {
+      "config": "rougherenvironment.fabric.mixins.json",
+      "environment": "client"
+    }
+  ]
+}

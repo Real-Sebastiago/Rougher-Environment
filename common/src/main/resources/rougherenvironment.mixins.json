@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.realsebastiago.rougherenvironment.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "refmap": "rougherenvironment.refmap.json",
+  "client": [
+    "BiomeColorsAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
