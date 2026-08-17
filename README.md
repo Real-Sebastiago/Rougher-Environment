@@ -18,9 +18,9 @@ however, since Ambient Environment uses biome blend and biome blend only extends
 grass, leaves and water, and not sand or lava.
 <br />
 
-I had to modify their textures to allow for them to recieve tint 
+I had to modify their textures to allow for them to receive tint 
 (as a side effect their colors are slightly off from vanilla, 
-most noticable in lava where I barely tried to give it vanilla tint), 
+most noticeable in lava where I barely tried to give it vanilla tint), 
 this means that this mod won't work with texture packs that change those two, 
 if you want it to work you would need to modify the pack to have its respective textures be monochrome, 
 and add a block model for sand, the .json would look something like this:

@@ -59,9 +59,11 @@ tasks.register('publishCurseForge', TaskPublishCurseForge) {
 modrinth {
     token.set(GMUtils.locateProperty(project, 'modrinth_token'))
     projectId.set(modrinth_project_id)
+    /*
     changelog.set(providers.of(GitChangelogValue) {
         parameters.repository.set(git_repo)
     }.get())
+     */
     versionName.set("NeoForge-${minecraft}-$version")
     versionType.set('release')
     gameVersions.set([minecraft])
