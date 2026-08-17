@@ -1,9 +1,9 @@
 # Rougher Environment
-## Forked from Jaredlll08's **Ambient Environment**
+## Forked from [Jaredlll08](https://modrinth.com/user/jaredlll08)'s **[Ambient Environment](https://modrinth.com/mod/ambient-environment)**
 
 Applies a noise gradient to places where it probably shouldn't be in to break up repeated surfaces.
 
-Uses the core logic from Ambient Environment but applies it to more places.
+Uses the core logic from [Ambient Environment](https://modrinth.com/mod/ambient-environment) but applies it to more places.
 <br />
 
 * Leaves and Dry leaves can now have a slight yellow-er tint.
@@ -11,9 +11,9 @@ Uses the core logic from Ambient Environment but applies it to more places.
 * Sand is slightly darker in some spots, which makes deserts look like they have waves in flatter places.
 <br />
 * Lava has dark spots, similar to how it looks in some shaders.
-
 <br />
-All of this was done by modifying the base methods used in Ambient Environment, 
+
+All of this was done by modifying the base methods used in [Ambient Environment](https://modrinth.com/mod/ambient-environment), 
 however, since Ambient Environment uses biome blend and biome blend only extends to 
 grass, leaves and water, and not sand or lava.
 <br />
