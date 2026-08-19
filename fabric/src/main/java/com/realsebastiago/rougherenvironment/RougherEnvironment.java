@@ -24,19 +24,17 @@ public class RougherEnvironment implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         BlockColorRegistry.register(List.of(new BlockTintSource() {
-            final int Color = 0xFCF3D1;
-            
             @Override
             public int colorInWorld(BlockState state, BlockAndTintGetter level, BlockPos pos) {
-                return ARGB.opaque(RougherEnvironmentCommon.getPositionColor(
-                        pos.getX(), pos.getZ(), Color, 0x996C23,
-                        148f, 0.2, 5, "Sand"
-                ));
+                return ARGB.opaque(RougherEnvironmentCommon.SAND_RESOLVER.getColor(
+                        level.getBiomeFabric(pos).value(), pos.getX(), pos.getZ()
+                        )
+                );
             }
             
             @Override
             public int color(BlockState state) {
-                return ARGB.opaque(Color);
+                return ARGB.opaque(0xFCF3D1);
             }
         }), Blocks.SAND);
         
@@ -48,19 +46,17 @@ public class RougherEnvironment implements ClientModInitializer {
                         new Material(Identifier.withDefaultNamespace("block/lava_flow")),
                         new Material(Identifier.withDefaultNamespace("block/water_overlay")),
                         new BlockTintSource() {
-                            final int Color = 0xE97D3A;
-                            
                             @Override
                             public int colorInWorld(BlockState state, BlockAndTintGetter level, BlockPos pos) {
-                                return ARGB.opaque(RougherEnvironmentCommon.getPositionColor(
-                                        pos.getX(), pos.getZ(), Color, 0x471206,
-                                        128f, 0.7, 3, "Lava"
-                                ));
+                                return ARGB.opaque(RougherEnvironmentCommon.LAVA_RESOLVER.getColor(
+                                                level.getBiomeFabric(pos).value(), pos.getX(), pos.getZ()
+                                        )
+                                );
                             }
                             
                             @Override
                             public int color(BlockState state) {
-                                return ARGB.opaque(Color);
+                                return ARGB.opaque(0xE97D3A);
                             }
                         }
                 )

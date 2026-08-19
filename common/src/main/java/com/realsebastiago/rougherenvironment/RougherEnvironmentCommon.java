@@ -25,7 +25,6 @@ public class RougherEnvironmentCommon {
     public static final PerlinSimplexNoise DRY_FOLIAGE_NOISE = new PerlinSimplexNoise(new XoroshiroRandomSource("DRY_FOLIAGE_NOISE".hashCode()), OCTAVES);
     
     public static final PerlinSimplexNoise BLOCK_NOISE = new PerlinSimplexNoise(new XoroshiroRandomSource("BLOCK_NOISE".hashCode()), OCTAVES);
-    
     public static final PerlinSimplexNoise LIQUID_NOISE = new PerlinSimplexNoise(new XoroshiroRandomSource("LIQUID_NOISE".hashCode()), OCTAVES_MORE);
     
     public static final ColorResolver FOLIAGE_RESOLVER = Util.make(() -> {
@@ -44,14 +43,6 @@ public class RougherEnvironmentCommon {
         BiomeColorsAccessor.rougherenvironment$setDryFoliageColorResolver(RougherEnvironmentCommon.DRY_FOLIAGE_RESOLVER);
         
     }
-    
-    private static int modifyColourNoBiome(PerlinSimplexNoise generator, ColorResolver resolver, int color, int colorBlend, double x, double z, double scale, double darkness) {
-        
-        double value = generator.getValue(x / scale, z / scale, false);
-        value = curve(0, 1, remap(value, -((1 << NOISE_OCTAVES) - 1), (1 << NOISE_OCTAVES) - 1, 0, 1)) * darkness;
-        return blend(color,  colorBlend, (float) (value));
-    }
-    
     
     private static int modifyColour(PerlinSimplexNoise generator, ColorResolver resolver, Biome biome, double x, double z, double scale, double darkness) {
         
@@ -117,15 +108,10 @@ public class RougherEnvironmentCommon {
         return toInt(new float[] {rgb1[0] * ratio + rgb2[0] * ir, rgb1[1] * ratio + rgb2[1] * ir, rgb1[2] * ratio + rgb2[2] * ir, rgb1[3] * ratio + rgb2[3] * ir});
     }
     
-    public static int getPositionColor(int x, int z, int color, int colorBlend, float scale, double darkness, int distance, String noiseType) {
-        final var baseResolver = BiomeColors.FOLIAGE_COLOR_RESOLVER;
-        
+    //Rougher Environment "Original" code begins here
+    
+    private static int blendedColor(int color, int colorBlend, int x, int z, int distance, PerlinSimplexNoise Noise, float scale, float darkness) {
         int length = distance*distance;
-        PerlinSimplexNoise Noise = switch(noiseType) {
-            case "Sand" -> BLOCK_NOISE;
-            case "Lava" -> LIQUID_NOISE;
-            default -> FOLIAGE_NOISE;
-        };
         
         float A = getAlpha(color); float R = getRed(color); float G = getGreen(color); float B = getBlue(color);
         
@@ -133,7 +119,7 @@ public class RougherEnvironmentCommon {
         
         for (int Blockx = 0; Blockx < distance; Blockx++) {
             for (int Blockz = 0; Blockz < distance; Blockz++) {
-                int BlockColor = modifyColourNoBiome(Noise, baseResolver, color, colorBlend, CornerX+Blockx, CornerZ+Blockz, scale, darkness);
+                int BlockColor = modifyColourNoBiome(Noise, color, colorBlend, CornerX+Blockx, CornerZ+Blockz, scale, darkness);
                 
                 A += getAlpha(BlockColor); R += getRed(BlockColor); G += getGreen(BlockColor); B += getBlue(BlockColor);
             }
@@ -146,4 +132,19 @@ public class RougherEnvironmentCommon {
         
         return finalColor;
     }
+    
+    private static int modifyColourNoBiome(PerlinSimplexNoise generator, int color, int colorBlend, double x, double z, double scale, double darkness) {
+        
+        double value = generator.getValue(x / scale, z / scale, false);
+        value = curve(0, 1, remap(value, -((1 << NOISE_OCTAVES) - 1), (1 << NOISE_OCTAVES) - 1, 0, 1)) * darkness;
+        return blend(color,  colorBlend, (float) (value));
+    }
+    
+    public static final ColorResolver SAND_RESOLVER = Util.make(() -> {
+        return (biome, x, z) -> blendedColor(0xFCF3D1, 0x8A6D54, (int) x, (int) z, 5, BLOCK_NOISE, 148f, 0.2f);
+    });
+    
+    public static final ColorResolver LAVA_RESOLVER = Util.make(() -> {
+        return (biome, x, z) -> blendedColor(0xE98F3A, 0x471F06, (int) x, (int) z, 3, LIQUID_NOISE, 128f, 0.7f);
+    });
 }
