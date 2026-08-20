@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.real_sebastiago.rougher_environment.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+    "MixinMinecraft"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "rougher_environment.refmap.json"
+}

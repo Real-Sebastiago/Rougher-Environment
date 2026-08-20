@@ -1,7 +1,6 @@
-package com.realsebastiago.rougherenvironment;
+package com.real_sebastiago.rougher_environment;
 
-import com.mojang.authlib.minecraft.client.MinecraftClient;
-import com.realsebastiago.rougherenvironment.mixin.BiomeColorsAccessor;
+import com.real_sebastiago.rougher_environment.mixin.BiomeColorsAccessor;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.util.Mth;
 import net.minecraft.util.Util;
@@ -15,7 +14,7 @@ import java.util.stream.IntStream;
 
 import static java.lang.Math.clamp;
 
-public class RougherEnvironmentCommon {
+public class Rougher_Environment_Common {
     
     public static final int NOISE_OCTAVES = 2;
     public static final int NOISE_OCTAVES_MORE = 3;
@@ -39,8 +38,8 @@ public class RougherEnvironmentCommon {
     
     public static void init() {
         
-        BiomeColorsAccessor.rougherenvironment$setFoliageColorResolver(RougherEnvironmentCommon.FOLIAGE_RESOLVER);
-        BiomeColorsAccessor.rougherenvironment$setDryFoliageColorResolver(RougherEnvironmentCommon.DRY_FOLIAGE_RESOLVER);
+        BiomeColorsAccessor.rougherenvironment$setFoliageColorResolver(Rougher_Environment_Common.FOLIAGE_RESOLVER);
+        BiomeColorsAccessor.rougherenvironment$setDryFoliageColorResolver(Rougher_Environment_Common.DRY_FOLIAGE_RESOLVER);
         
     }
     

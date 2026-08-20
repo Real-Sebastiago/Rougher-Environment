@@ -1,4 +1,4 @@
-package com.realsebastiago.rougherenvironment;
+package com.real_sebastiago.rougher_environment;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
@@ -20,13 +20,13 @@ import java.util.List;
 
 
 @Environment(EnvType.CLIENT)
-public class RougherEnvironment implements ClientModInitializer {
+public class Rougher_Environment implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         BlockColorRegistry.register(List.of(new BlockTintSource() {
             @Override
             public int colorInWorld(BlockState state, BlockAndTintGetter level, BlockPos pos) {
-                return ARGB.opaque(RougherEnvironmentCommon.SAND_RESOLVER.getColor(
+                return ARGB.opaque(Rougher_Environment_Common.SAND_RESOLVER.getColor(
                         level.getBiomeFabric(pos).value(), pos.getX(), pos.getZ()
                         )
                 );
@@ -48,7 +48,7 @@ public class RougherEnvironment implements ClientModInitializer {
                         new BlockTintSource() {
                             @Override
                             public int colorInWorld(BlockState state, BlockAndTintGetter level, BlockPos pos) {
-                                return ARGB.opaque(RougherEnvironmentCommon.LAVA_RESOLVER.getColor(
+                                return ARGB.opaque(Rougher_Environment_Common.LAVA_RESOLVER.getColor(
                                                 level.getBiomeFabric(pos).value(), pos.getX(), pos.getZ()
                                         )
                                 );

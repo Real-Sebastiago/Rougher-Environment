@@ -4,7 +4,7 @@ issueTrackerURL = "${GIT_REPO}/issues"
 license = "MIT"
 [[mods]]
 modId = "${MODID}"
-updateJSONURL = "https://updates.blamejared.com/get?n=${MODID}&gv=${MINECRAFT}&ml=neoforge"
+updateJSONURL = ""
 version = "${VERSION}"
 displayName = "${NAME}"
 displayURL = "${CURSE_HOMEPAGE}"

@@ -12,10 +12,10 @@
     "issues": ""
   },
   "license": "MIT",
-  "icon": "assets/rougherenvironment/icon.png",
+  "icon": "assets/rougher_environment/icon.png",
   "entrypoints": {
     "client": [
-      "com.realsebastiago.rougherenvironment.RougherEnvironment"
+      "com.real_sebastiago.rougher_environment.Rougher_Environment"
     ]
   },
   "depends": {
@@ -28,11 +28,11 @@
   },
   "mixins": [
     {
-      "config": "rougherenvironment.mixins.json",
+      "config": "rougher_environment.mixins.json",
       "environment": "client"
     },
     {
-      "config": "rougherenvironment.fabric.mixins.json",
+      "config": "rougher_environment.fabric.mixins.json",
       "environment": "client"
     }
   ]

@@ -1,6 +1,6 @@
-package com.realsebastiago.rougherenvironment.mixin;
+package com.real_sebastiago.rougher_environment.mixin;
 
-import com.realsebastiago.rougherenvironment.RougherEnvironmentCommon;
+import com.real_sebastiago.rougher_environment.Rougher_Environment_Common;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.main.GameConfig;
 import org.spongepowered.asm.mixin.Mixin;
@@ -14,7 +14,7 @@ public class MixinMinecraft {
     @Inject(method = "<init>", at = @At("TAIL"))
     public void init(GameConfig gameConfig, CallbackInfo ci) {
         
-        RougherEnvironmentCommon.init();
+        Rougher_Environment_Common.init();
     }
     
 }
