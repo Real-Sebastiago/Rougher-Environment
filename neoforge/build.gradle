@@ -35,7 +35,7 @@ neoForge {
 
 dependencies {
 }
-
+/*
 tasks.register('publishCurseForge', TaskPublishCurseForge) {
     dependsOn(tasks.jar)
     apiToken = GMUtils.locateProperty(project, 'curseforgeApiToken')
@@ -59,11 +59,11 @@ tasks.register('publishCurseForge', TaskPublishCurseForge) {
 modrinth {
     token.set(GMUtils.locateProperty(project, 'modrinth_token'))
     projectId.set(modrinth_project_id)
-    /*
+
     changelog.set(providers.of(GitChangelogValue) {
         parameters.repository.set(git_repo)
     }.get())
-     */
+
     versionName.set("NeoForge-${minecraft}-$version")
     versionType.set('release')
     gameVersions.set([minecraft])
@@ -71,7 +71,7 @@ modrinth {
     loaders.add('neoforge')
 }
 tasks.modrinth.dependsOn(tasks.jar)
-
+*/
 
 // Implement mcgradleconventions loader attribute
 def loaderAttribute = Attribute.of('io.github.mcgradleconventions.loader', String)

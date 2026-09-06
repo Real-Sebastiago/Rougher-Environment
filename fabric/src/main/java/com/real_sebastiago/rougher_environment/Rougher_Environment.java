@@ -34,9 +34,54 @@ public class Rougher_Environment implements ClientModInitializer {
             
             @Override
             public int color(BlockState state) {
-                return ARGB.opaque(0xFCF3D1);
+                return ARGB.opaque(0xFFFFFF);
             }
         }), Blocks.SAND);
+        
+        BlockColorRegistry.register(List.of(new BlockTintSource() {
+            @Override
+            public int colorInWorld(BlockState state, BlockAndTintGetter level, BlockPos pos) {
+                return ARGB.opaque(Rougher_Environment_Common.RED_SAND_RESOLVER.getColor(
+                                level.getBiomeFabric(pos).value(), pos.getX(), pos.getZ()
+                        )
+                );
+            }
+            
+            @Override
+            public int color(BlockState state) {
+                return ARGB.opaque(0xFFFFFF);
+            }
+        }), Blocks.RED_SAND);
+        
+        BlockColorRegistry.register(List.of(new BlockTintSource() {
+            @Override
+            public int colorInWorld(BlockState state, BlockAndTintGetter level, BlockPos pos) {
+                return ARGB.opaque(Rougher_Environment_Common.END_STONE_RESOLVER.getColor(
+                                level.getBiomeFabric(pos).value(), pos.getX(), pos.getZ()
+                        )
+                );
+            }
+            
+            @Override
+            public int color(BlockState state) {
+                return ARGB.opaque(0xFFFFFF);
+            }
+        }), Blocks.END_STONE);
+        
+        BlockColorRegistry.register(List.of(new BlockTintSource() {
+            @Override
+            public int colorInWorld(BlockState state, BlockAndTintGetter level, BlockPos pos) {
+                return ARGB.opaque(Rougher_Environment_Common.BEDROCK_RESOLVER.getColor(
+                                level.getBiomeFabric(pos).value(), pos.getX(), pos.getZ()
+                        )
+                );
+            }
+            
+            @Override
+            public int color(BlockState state) {
+                return ARGB.opaque(0xFFFFFF);
+            }
+        }), Blocks.BEDROCK);
         
         FluidRenderingRegistry.register(
                 Fluids.LAVA,
@@ -56,7 +101,7 @@ public class Rougher_Environment implements ClientModInitializer {
                             
                             @Override
                             public int color(BlockState state) {
-                                return ARGB.opaque(0xE97D3A);
+                                return ARGB.opaque(0xFFFFFF);
                             }
                         }
                 )

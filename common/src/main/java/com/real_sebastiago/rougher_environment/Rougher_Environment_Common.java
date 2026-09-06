@@ -28,12 +28,12 @@ public class Rougher_Environment_Common {
     
     public static final ColorResolver FOLIAGE_RESOLVER = Util.make(() -> {
         final var baseResolver = BiomeColors.FOLIAGE_COLOR_RESOLVER;
-        return (biome, x, z) -> modifyColour(FOLIAGE_NOISE, baseResolver, biome, x, z, 512f, 0.6f);
+        return (biome, x, z) -> modifyColour(FOLIAGE_NOISE, baseResolver, biome, x, z, 512f, 0.8f);
     });
     
     public static final ColorResolver DRY_FOLIAGE_RESOLVER = Util.make(() -> {
         final var baseResolver = BiomeColors.DRY_FOLIAGE_COLOR_RESOLVER;
-        return (biome, x, z) -> modifyColour(DRY_FOLIAGE_NOISE, baseResolver, biome, x, z, 512f, 0.4f);
+        return (biome, x, z) -> modifyColour(DRY_FOLIAGE_NOISE, baseResolver, biome, x, z, 512f, 0.35f);
     });
     
     public static void init() {
@@ -140,10 +140,27 @@ public class Rougher_Environment_Common {
     }
     
     public static final ColorResolver SAND_RESOLVER = Util.make(() -> {
-        return (biome, x, z) -> blendedColor(0xFCF3D1, 0x8A6D54, (int) x, (int) z, 5, BLOCK_NOISE, 148f, 0.2f);
+        return (biome, x, z) -> blendedColor(0xFFFFFF, 0xA48282, (int) x, (int) z,
+                5, BLOCK_NOISE, 128f, 0.275f);
+    });
+    
+    public static final ColorResolver RED_SAND_RESOLVER = Util.make(() -> {
+        return (biome, x, z) -> blendedColor(0xFFFFFF, 0xB87E2C, (int) x, (int) z,
+                9, BLOCK_NOISE, 196f, 0.675f);
+    });
+    
+    public static final ColorResolver END_STONE_RESOLVER = Util.make(() -> {
+        return (biome, x, z) -> blendedColor(0xFFFFFF, 0xC752A3, (int) x, (int) z,
+                9, BLOCK_NOISE, 156f, 0.275f);
+    });
+    
+    public static final ColorResolver BEDROCK_RESOLVER = Util.make(() -> {
+        return (biome, x, z) -> blendedColor(0xFFFFFF, 0x464646, (int) x, (int) z,
+                3, BLOCK_NOISE, 196f, 0.425f);
     });
     
     public static final ColorResolver LAVA_RESOLVER = Util.make(() -> {
-        return (biome, x, z) -> blendedColor(0xE98F3A, 0x471F06, (int) x, (int) z, 3, LIQUID_NOISE, 128f, 0.7f);
+        return (biome, x, z) -> blendedColor(0xFFFFFF, 0x818181, (int) x, (int) z,
+                3, LIQUID_NOISE, 156f, 0.825f);
     });
 }
