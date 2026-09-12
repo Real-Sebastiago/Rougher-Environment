@@ -1,4 +1,7 @@
-# Rougher Environment
+<div align="center"> 
+<p> <img src="https://cdn.modrinth.com/data/cached_images/529ceb0c2fc99ba1aae6132ec7c0f0f2300c6a5f.png" alt="Rougher Environment Logo" width="600"/> </p>
+</div>
+
 ## Forked from [Jaredlll08](https://modrinth.com/user/jaredlll08)'s **[Ambient Environment](https://modrinth.com/mod/ambient-environment)**
 
 Applies a noise gradient to places where it probably shouldn't be in to break up repeated surfaces.
@@ -6,40 +9,59 @@ Applies a noise gradient to places where it probably shouldn't be in to break up
 Uses the core logic from [Ambient Environment](https://modrinth.com/mod/ambient-environment) but applies it to more places.
 <br />
 
-* Leaves and Dry leaves can now have a slight yellow-er tint.
-<br />
-* Sand is slightly darker in some spots, which makes deserts look like they have waves in flatter places.
+* The sands are slightly darker in some spots, which makes deserts look like they have waves in flatter places.
 <br />
 * Lava has dark spots, similar to how it looks in some shaders.
 <br />
+* Bedrock has a cool pattern on it now, making the Nether roof less boring.
+<br />
+* End Stone is now slightly purpler is some spots.
+<br />
+  
+<div align="center"> 
+<p> <img src="https://cdn.modrinth.com/data/781UJlif/images/e4d09601075952b33c8c93d53076f259addead89.png" alt="A view of a desert" width="400"/> <img src="https://cdn.modrinth.com/data/781UJlif/images/034904f4c8eaeecab686bc276387496da8e26fd7.jpeg" alt="A view of a lava lake in the Nether" width="400"/> </p>
+</div>
+<div align="center"> 
+<p> <img src="https://cdn.modrinth.com/data/cached_images/6a28e3d535adf7b2aaefef9f2c631d49c68180e7_0.webp" alt="A view of a superflat desert with the noise gradient visible" width="805"/> </p>
 
-All of this was done by modifying the base methods used in [Ambient Environment](https://modrinth.com/mod/ambient-environment), 
-however, since Ambient Environment uses biome blend and biome blend only extends to 
-grass, leaves and water, and not sand or lava.
+All of this was done by modifying the base methods used in [Ambient Environment](https://modrinth.com/mod/ambient-environment)
+</div>
+
 <br />
 
-I had to modify their textures to allow for them to receive tint 
-(as a side effect their colors are slightly off from vanilla, 
-most noticeable in lava where I barely tried to give it vanilla tint), 
-this means that this mod won't work with texture packs that change those two, 
-if you want it to work you would need to modify the pack to have its respective textures be monochrome, 
-and add a block model for sand, the .json would look something like this:
-```
-{
-  "parent": "minecraft:block/leaves",
-  "textures": {
-    "all": "minecraft:block/sand"
-  }
-}
-```
-Notice how we use the `"minecraft:block/leaves"` parent, this is to let the sand be fully colored on all sides.
+## Performance
+The mod produced near to zero impact on performance.
 <br />
-There's also a fake blend effect applied to the non biome blend noises, 
-I would like to state that the way this is done sucks and is definitely not optimal
-however this was meant to be a weekend project and I don't want to read anymore wikis.
+When deactivating biome blending leaves can appear weirdly transparent (this is most likely why the original doesn't do this for leaves), this is only if you have see-through leaves enabled.
+
 <br />
 
-Also I barely know any java and have no idea as to how this even works so please forgive me.
+## Compatibility
+The mod is fully compatible with all mods and texture packs, as long as they don't mess with the block models of the textures that are tinted (in case they do all that happens is that the noise gradient ins't visible).
+
 <br />
 
-Didnt use AI tho so we good ig.
+### More screenshots!
+<div align="center"> 
+<p> <img src="https://cdn.modrinth.com/data/781UJlif/images/993a4f6d861ca837971dc470f1b4e98eeac2c362.png" alt="A view of a badlands" width="400"/> <img src="https://cdn.modrinth.com/data/781UJlif/images/2ebea79c20168e5868ffc115def75a34ffdc6dd1.jpeg" alt="A view of the Nether roof" width="400"/> </p>
+</div>
+
+## Disclaimers
+Since the noise works off of position, this mod _can_ leak your cordinates similar to how grass can so be careful out there.
+<br />
+No AI was used, or will ever be used, in the making of this mod, or any of its assets.
+<br />
+If the original creator of [Ambient Environment](https://modrinth.com/mod/ambient-environment)  ([Jaredlll08](https://modrinth.com/user/jaredlll08)) has a problem with this please contact me.
+
+<br />
+
+<hr />
+<div align="left">
+<p> Real_Sebastiago on all platforms: </p>
+</div>
+
+<div align="center"> 
+<a href="https://modrinth.com/user/Real_Sebastiago" target="_blank"> <img src="https://cdn.modrinth.com/data/cached_images/1f0ab67ef9368ce0c0f9c7eca0a91b28b0b05548.png" alt="My Modrinth" width="200"> </a>
+<a href="https://x.com/Real_Sebastiago" target="_blank"> <img src="https://cdn.modrinth.com/data/cached_images/fa470473968fd7c1dff5dea35a210826270fb155_0.webp" alt="My Twitter" width="200"> </a>
+<a href="https://github.com/Real-Sebastiago" target="_blank"> <img src="https://cdn.modrinth.com/data/cached_images/31428edc03d18e385f2ac559da825efe43098b95_0.webp" alt="My GitHub" width="200"> </a>
+</div>
