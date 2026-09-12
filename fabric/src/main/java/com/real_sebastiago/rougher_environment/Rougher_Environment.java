@@ -26,9 +26,7 @@ public class Rougher_Environment implements ClientModInitializer {
         BlockColorRegistry.register(List.of(new BlockTintSource() {
             @Override
             public int colorInWorld(BlockState state, BlockAndTintGetter level, BlockPos pos) {
-                return ARGB.opaque(Rougher_Environment_Common.SAND_RESOLVER.getColor(
-                        level.getBiomeFabric(pos).value(), pos.getX(), pos.getZ()
-                        )
+                return ARGB.opaque(Rougher_Environment_Common.SAND_RESOLVER.getColor(null, pos.getX(), pos.getZ())
                 );
             }
             
@@ -41,9 +39,7 @@ public class Rougher_Environment implements ClientModInitializer {
         BlockColorRegistry.register(List.of(new BlockTintSource() {
             @Override
             public int colorInWorld(BlockState state, BlockAndTintGetter level, BlockPos pos) {
-                return ARGB.opaque(Rougher_Environment_Common.RED_SAND_RESOLVER.getColor(
-                                level.getBiomeFabric(pos).value(), pos.getX(), pos.getZ()
-                        )
+                return ARGB.opaque(Rougher_Environment_Common.RED_SAND_RESOLVER.getColor(null, pos.getX(), pos.getZ())
                 );
             }
             
@@ -56,9 +52,7 @@ public class Rougher_Environment implements ClientModInitializer {
         BlockColorRegistry.register(List.of(new BlockTintSource() {
             @Override
             public int colorInWorld(BlockState state, BlockAndTintGetter level, BlockPos pos) {
-                return ARGB.opaque(Rougher_Environment_Common.END_STONE_RESOLVER.getColor(
-                                level.getBiomeFabric(pos).value(), pos.getX(), pos.getZ()
-                        )
+                return ARGB.opaque(Rougher_Environment_Common.END_STONE_RESOLVER.getColor(null, pos.getX(), pos.getZ())
                 );
             }
             
@@ -71,9 +65,7 @@ public class Rougher_Environment implements ClientModInitializer {
         BlockColorRegistry.register(List.of(new BlockTintSource() {
             @Override
             public int colorInWorld(BlockState state, BlockAndTintGetter level, BlockPos pos) {
-                return ARGB.opaque(Rougher_Environment_Common.BEDROCK_RESOLVER.getColor(
-                                level.getBiomeFabric(pos).value(), pos.getX(), pos.getZ()
-                        )
+                return ARGB.opaque(Rougher_Environment_Common.BEDROCK_RESOLVER.getColor(null, pos.getX(), pos.getZ())
                 );
             }
             
@@ -93,9 +85,7 @@ public class Rougher_Environment implements ClientModInitializer {
                         new BlockTintSource() {
                             @Override
                             public int colorInWorld(BlockState state, BlockAndTintGetter level, BlockPos pos) {
-                                return ARGB.opaque(Rougher_Environment_Common.LAVA_RESOLVER.getColor(
-                                                level.getBiomeFabric(pos).value(), pos.getX(), pos.getZ()
-                                        )
+                                return ARGB.opaque(Rougher_Environment_Common.LAVA_RESOLVER.getColor(null, pos.getX(), pos.getZ())
                                 );
                             }
                             

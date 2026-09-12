@@ -161,6 +161,6 @@ public class Rougher_Environment_Common {
     
     public static final ColorResolver LAVA_RESOLVER = Util.make(() -> {
         return (biome, x, z) -> blendedColor(0xFFFFFF, 0x818181, (int) x, (int) z,
-                3, LIQUID_NOISE, 156f, 0.825f);
+                3, LIQUID_NOISE, 156f, 0.875f);
     });
 }
